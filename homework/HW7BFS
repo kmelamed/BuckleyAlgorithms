@@ -1,0 +1,94 @@
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Scanner;
+import java.util.Stack;
+
+public class BFS {
+
+	public static void main(String[] args) throws FileNotFoundException {
+	//0 for ., -1 for x
+		Scanner in = new Scanner(new File("maze.txt"));
+		int row = in.nextInt();
+		int col = in.nextInt();
+		in.nextLine();
+		int[][] maze = new int[row][col];
+		for (int i = 0; i < row; i++) {
+			String line = in.nextLine();
+			for (int j = 0; j < col; j++) 
+				maze[i][j] = line.charAt(j) =='x' ? -1 : 0;
+		}
+		in.close();
+		
+		for (int[] i: maze) {
+			for (int j: i)
+				System.out.printf("%3d", j); //printf is a formatted print. 3 is hoy many spaces and d is decimal (or int)
+			System.out.println();
+		}
+		
+		int startI = 4, startJ = 1;
+		int endI = 4, endJ = 3;
+		Queue<Integer> q = new LinkedList<>();
+		q.offer(startI);
+		q.offer(startJ);
+		int[] di = {-1, 0, 1, 0};
+		int[] dj = {0, 1, 0, -1};
+		maze[startI][startJ] = 1;
+		boolean found = false;
+		while (!q.isEmpty() && !found) {
+			int fromI = q.poll();
+			int fromJ = q.poll();
+			for (int k = 0; k < 4 && !found; k++) {
+				int toI = fromI + di[k];
+				int toJ = fromJ + dj[k];
+				if (toI == endI && toJ == endJ)
+					found = true;
+				if (toI >= 0 && toI < row && toJ >= 0 & toJ < col && maze[toI][toJ] == 0) {
+					maze[toI][toJ] = maze[fromI][fromJ] + 1;
+					q.offer(toI);
+					q.offer(toJ);
+				}
+			}
+		}
+		System.out.println("\n------------------------\n");
+		for (int[] i: maze) {
+			for (int j: i)
+				System.out.printf("%3d", j); //printf is a formatted print. 3 is how many spaces and d is decimal (or int)
+			System.out.println();
+		}
+
+		//HOMEWORK: print path from (startI, startJ) to (endI, endJ) in the following format:
+		//(3, 4) -> (3, 5) -> (2, 5) -> (2, 6) -> (3, 6) -> (4, 6)
+		
+		boolean foundPath = false;
+		Queue<Integer> q2 = new LinkedList<>();
+		q2.offer(endI);
+		q2.offer(endJ);
+		while (!q2.isEmpty() && !foundPath) {
+			int pathI = q2.poll();
+			int pathJ = q2.poll();
+			boolean nextFound = false;
+			for (int k = 0; k < 4 && !nextFound; k++) {
+				int newI = pathI + dj[k];
+				int newJ = pathJ + dj[k];
+				if (newI == startI && newJ == startJ) { 
+					q2.offer(newI);
+					q2.offer(newJ);
+					foundPath = true;
+					System.out.print("(" + pathI + ", " + pathJ +") ->");
+					break;
+				}
+				if (newI >= 0 && newI < row && newJ >= 0 && newJ < col && maze[newI][newJ] != -1){
+					q2.offer(newI);
+					q2.offer(newJ);
+					System.out.print("(" + pathI + ", " + pathJ +")");
+				}
+			}
+			
+		}
+		System.out.println("(" + q.poll() + ", " + q.poll() +")");
+		
+	}
+
+}
