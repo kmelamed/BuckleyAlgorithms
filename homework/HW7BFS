@@ -1,3 +1,14 @@
+maze.txt;
+8 10
+.....x..x.
+x.......x.
+.....x..x.
+xxx..x....
+..x..x..x.
+..x..x..x.
+.....x..x.
+x....x..x.
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.LinkedList;
