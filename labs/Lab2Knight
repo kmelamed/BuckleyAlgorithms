@@ -1,0 +1,60 @@
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Scanner;
+
+public class Lab2Knights {
+
+	public static void main(String[] args) {
+		Scanner in = new Scanner(System.in);
+		String squareA = in.nextLine().toUpperCase();
+		String squareB = in.nextLine().toUpperCase();
+		int numSteps;
+		int[][] board = new int[8][8];
+		int startI = (8 - (squareA.charAt(1) - 48));
+		int startJ = 0; 
+		int endI = (8 - (squareB.charAt(1) - 48));
+		int endJ = 0;
+					
+		for (int i = 0; i < 8; i++) {
+			//65 = A, 72 = H
+			if (squareA.charAt(0) == (char)(i+65)) {
+				startJ = i;
+			}
+			if (squareB.charAt(0) == (char)(i+65)) {
+				endJ = i;
+			}		
+		}
+		
+		Queue<Integer> q = new LinkedList<>();
+		q.offer(startI);
+		q.offer(startJ);
+		int[] di = {-1, -2, -2, -1, 1, 2, 2, 1};
+		int[] dj = {2, 1, -1, -2, -2, -1, 1, 2};
+		//board[startI][startJ] = 1;
+		boolean found = false;
+		while (!q.isEmpty() && !found) {
+			int fromI = q.poll();
+			int fromJ = q.poll();
+			for (int k = 0; k < 8; k++) {
+				int toI = fromI + di[k];
+				int toJ = fromJ + dj[k];
+				if (toI == endI && toJ == endJ)
+					found = true;
+				if (toI >= 0 && toI < 8 && toJ >= 0 && toJ < 8 && board[toI][toJ] == 0) {
+					board[toI][toJ] = board[fromI][fromJ] + 1;
+					q.offer(toI);
+					q.offer(toJ);
+				}
+			}
+		}
+		
+//		prints board		
+//		System.out.println("\n------------------------\n");
+//		for (int[] i: board) {
+//			for (int j: i)
+//				System.out.printf("%3d", j);
+//			System.out.println();
+//		}
+		System.out.println("Number of moves: " + board[endI][endJ]);
+	}
+}
