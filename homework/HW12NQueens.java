@@ -1,6 +1,6 @@
 
 public class NQueens {
-	static final int N = 4;
+	static final int N = 8;
 	static boolean[][] board = new boolean[N][N];
 
 	public static void main(String[] args) {
@@ -35,12 +35,12 @@ public class NQueens {
 			}
 			row--; col--;
 		}
-		while (rr < N && cc >= 0) {
+		while (cc < N && rr >= 0) {
 			if (board[rr][cc]) {
-				rr++; cc--;
+				rr--; cc++;
 				return false;
 			}
-			rr++; cc--;
+			rr--; cc++;
 		}
 		return true;
 	}
