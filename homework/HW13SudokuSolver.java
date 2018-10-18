@@ -128,7 +128,7 @@ public class SudokuHW12 extends Application {
         int boxRow = r - r % 3;
         int boxCol = c - c % 3;
         for (int i = boxRow; i < boxRow + 3; i++) {
-            for (int j = boxCol; i < boxCol + 3; j++) {
+            for (int j = boxCol; j < boxCol + 3; j++) {
                 if (grid[boxRow][boxCol] == n) {
                     return false;
                 }
