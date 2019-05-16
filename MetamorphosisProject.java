@@ -11,7 +11,7 @@ public class Metamorphosis {
 	}
 	
 	public static void Intro() {
-		System.out.println("Your father has lost his job. You need to get a job. \nYou");
+		System.out.println("Your father has lost his job and your family is in debt. You need to get a job. \nYou");
 		System.out.println("a.) become a carpenter \nb.) work at the market\nc.) become a travelling salesman");
 		char choice = in.nextLine().charAt(0);
 		if (choice == 'a') Carpenter();
@@ -22,7 +22,7 @@ public class Metamorphosis {
 	
 	public static void Carpenter() {
 		System.out.println("\n\nYou are living through the Industrial Revolution. Machines and factories are taking over. You aren’t making enough money as a carpenter to support your family. \nYou:");
-		System.out.println("a.) become a _____ \nb.) become a travelling salesman");
+		System.out.println("a.) work at the market \nb.) become a travelling salesman");
 		char choice = in.nextLine().charAt(0);
 		if (choice == 'a') Market2();
 		if (choice == 'b') TravellingSalesman();
@@ -37,7 +37,7 @@ public class Metamorphosis {
 	}
 	
 	public static void TravellingSalesman() {
-		System.out.println("\n\nYou are making substantially more money than before. Your family is no longer at risk of losing their house. \nHowever, your job isn’t perfect. You begin to feel alienated because of the distance between you and your \nhome that results from all your travelling.");
+		System.out.println("\n\nYou are making a relatively substantial amount of money. Your family is no longer at risk of losing their house. \nHowever, your job isn’t perfect. You begin to feel alienated because of the distance between you and your \nhome that results from all your travelling.");
 		System.out.println("\nIt's time for another day of work. You wake up at 4:00 am to the sound of your alarm. \nTo prepare for work, you pack your cloth samples in your bag and go to the kitchen for breakfast. \nYou see what your mom set out on the table. \nYou choose to eat:");
 		System.out.println("a.) eggs and toast");
 		System.out.println("b.) a bagel and fruit");
@@ -103,6 +103,8 @@ public class Metamorphosis {
 		System.out.println("You hear your mother and Grete begin to cry. They call for a doctor.");
 		System.out.println("\"I’m going to be coming out now\" you say.");
 		System.out.println("With some difficulty, you open the door and crawl out. You hear your mom scream. \nShe runs towards your father. Your father runs to you, gives your a truly liberating kick, \nand you are thrown, bleeding profusely, far into your room. Your door is battered shut with your dad’s cane.");
+		System.out.println("Press \"a\" to continue.");
+		char choice = in.nextLine().charAt(0);
 		CockroachCont();
 	}
 	
@@ -115,6 +117,8 @@ public class Metamorphosis {
 		System.out.println("\"I’ve turned into a cockroach. I’m going to come out in a minute, please don’t be alarmed\" you say.");
 		System.out.println("\"Did you understand a single word of that?\" your father asks.");
 		System.out.println("With some difficulty, you open the door and crawl out. You hear your mom scream. \nShe runs towards your father. Your father runs to you, gives your a truly liberating kick, \nand you are thrown, bleeding profusely, far into your room. Your door is battered shut with your dad’s cane.");
+		System.out.println("Press \"a\" to continue.");
+		char choice = in.nextLine().charAt(0);
 		CockroachCont();
 	}
 	
@@ -126,13 +130,17 @@ public class Metamorphosis {
 		System.out.println("\"I’ll be out soon,\" you reply.");
 		System.out.println("You hear the front door opening and recognize a familiar voice, the voice of the Chief Clerk of your company. \nYou hate how your absence was so quickly recognized. You begin to speak and go on about how \nyou just need to pack your samples and then you’ll be ready to go. After you’re done, you hear silence. \nThen you hear your mom and Grete begin to cry. They call for a doctor. \nYou’re finally able to open the door, and when you make it out, you see the Chief Clerk staring at you, mouth agape.");
 		System.out.println("He stutters and fumbles towards the door and out of the house. You hear your mom scream. \nShe runs towards your father. Your father runs to you, gives your a truly liberating kick, \nand you are thrown, bleeding profusely, far into your room. Your door is battered shut with your dad’s cane.");
+		System.out.println("Press \"a\" to continue.");
+		char choice = in.nextLine().charAt(0);
 		CockroachCont();
 	}
 	
 	public static void CockroachCont() {
 		System.out.println("After a day of sleeping and not eating the milk and bread that is left by your door, \nGrete comes into your bedroom to visit you. She notices the uneaten milk and bread and brings you \nold and rotten foods. When she leaves, you devour the food. Everytime Grete comes into your room to feed you, \nyou hide under the couch so she doesn’t have to look at you.");
-		System.out.println("\n\n\nIt has been about two months since your metamorphosis. Grete still comes in to feed you and is now okay with \nseeing your new form. However, your parents have not yet come to see you. \n\nYou have been spending time crawling all over the ceiling and the walls. \nYou’ve learned how to control your new body, and now you don’t hurt yourself, even after a fall from a \nconsiderable height. \nGrete observed this new amusement that you’ve found by crawling up and down the room.");
-		System.out.println("\n\nShe decides she wanted to maximize the amount of crawling you can do by removing some of the furniture from your room. \nThere is nobody else to help Grete but your mother. She comes into your room only after Grete assures her that \nshe won’t be able to see you from under the couch. They begin to move the wardrobe.");
+		System.out.println("\n\n\nIt has been about two months since your metamorphosis. Grete still comes in to feed you and is now okay with \nseeing your new form. However, your parents have not yet come to see you. \n\nYou have been spending time crawling all over the ceiling and the walls. \nYou’ve learned how to control your new body, and now you don’t hurt yourself, even after a fall from a \nconsiderable height. \nGrete observes this new amusement that you’ve found by crawling up and down the room.");
+		System.out.println("Press \"a\" to continue.");
+		char choice0 = in.nextLine().charAt(0);
+		System.out.println("\n\nShe decides she wants to maximize the amount of crawling you can do by removing some of the furniture from your room. \nThere is nobody else to help Grete but your mother. She comes into your room only after Grete assures her that \nshe won’t be able to see you from under the couch. They begin to move the wardrobe.");
 		System.out.println("Your mother tells Grete in a whisper \"isn’t it the case, that by taking away his furniture, we would be showing \nhim we were abandoning all hope of an improvement in his condition, and leaving him utterly to his own devices?");
 		System.out.println("I think it would be best if we try to leave the room in exactly the condition it was before, so that, \nif Gregor is returned to us, he will find everything unaltered, and will thereby be able \nto forget the intervening period almost as if it hadn’t happened.\"");
 		System.out.println("\nIs it really your wish to have your cozy room, comfortable furnished with old heirlooms, \ntransformed into a sort of cave, merely so that you’ll be able to crawl around in it freely, \nwithout hindrance in any direction -- even at the expense of of rapidly and utterly forgetting your human past? \nYou decide that the furniture must stay.");
